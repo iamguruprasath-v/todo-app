@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhVGHGSeEzTQ1EXRu42bC4o1MrJBVgY8BgA&s" type="image/png">
+    <link rel="stylesheet" href="./style.css">
+    <title>TODOs</title>
+</head>
+<body>
+    <div class="add-task-modal">
+        <form action="">
+            <input type="text" id="task-input" placeholder="Enter your task here..." required>
+            <textarea name="description" id="task-description" placeholder="Any Description"></textarea>
+        </form>
+    </div>
+    <div class="container">
+        <h2>Your ToDo's</h2>
+        <!-- <select name="filter" id="filter">
+            <option value="" disabled selected hidden>Filter</option>
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
+        </select> -->
+        <div class="task-table-container">
+            <table class="task-table">
+                <thead class="task-table-head">
+                    <tr>
+                        <th>SNO:</th>
+                        <th>Task</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="task-table-content" id="task-table-content">
+
+                </tbody>
+            </table>
+            <button type="button" title="Add New"><img src="https://cdn-icons-png.freepik.com/256/3388/3388964.png" class="image-icon" id="add-new"/></button>
+        </div>
+    </div>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
