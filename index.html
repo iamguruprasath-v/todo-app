@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhVGHGSeEzTQ1EXRu42bC4o1MrJBVgY8BgA&s" type="image/png">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/d6128b37c4.js" crossorigin="anonymous"></script>
     <title>TODOs</title>
 </head>
 <body>
-    <div class="add-task-modal">
-        <form action="">
-            <input type="text" id="task-input" placeholder="Enter your task here..." required>
-            <textarea name="description" id="task-description" placeholder="Any Description"></textarea>
-        </form>
-    </div>
     <div class="container">
         <h2>Your ToDo's</h2>
         <!-- <select name="filter" id="filter">
@@ -22,7 +17,7 @@
             <option value="completed">Completed</option>
         </select> -->
         <div class="task-table-container">
-            <table class="task-table">
+            <table class="task-table" spellcheck="true">
                 <thead class="task-table-head">
                     <tr>
                         <th>SNO:</th>
@@ -32,10 +27,39 @@
                     </tr>
                 </thead>
                 <tbody class="task-table-content" id="task-table-content">
-
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>
+                            Task-1
+                        </td>
+                        <td>
+                            <div class="toggle" id="toggle-status">
+                                <div class="toggle-button" data-status = "false"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <button title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                <button title="Save"><i class="fa-duotone fa-solid fa-circle-check"></i></button>
+                                <button title="Delete"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr> -->
+                    <tr class="task-creation">
+                        <td></td>
+                        <td class="task-input">
+                            <input type="text" placeholder="Click here - Task creation" id="task-input" />
+                        </td>
+                        <td></td>
+                        <td>
+                            <div class="actions">
+                                <button title="Save"><i class="fa-duotone fa-solid fa-circle-check"></i></button>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
-            <button type="button" title="Add New"><img src="https://cdn-icons-png.freepik.com/256/3388/3388964.png" class="image-icon" id="add-new"/></button>
+            <!-- <button type="button" title="Add New"><img src="https://cdn-icons-png.freepik.com/256/3388/3388964.png" class="image-icon" id="add-new"/></button> -->
         </div>
     </div>
     <script type="module" src="./script.js"></script>
