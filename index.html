@@ -11,12 +11,9 @@
 <body>
     <div class="container">
         <h2>Your ToDo's</h2>
-        <!-- <select name="filter" id="filter">
-            <option value="" disabled selected hidden>Filter</option>
-            <option value="active">Active</option>
-            <option value="completed">Completed</option>
-        </select> -->
+
         <div class="task-table-container">
+            
             <table class="task-table" spellcheck="true">
                 <thead class="task-table-head">
                     <tr>
@@ -27,39 +24,24 @@
                     </tr>
                 </thead>
                 <tbody class="task-table-content" id="task-table-content">
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>
-                            Task-1
-                        </td>
-                        <td>
-                            <div class="toggle" id="toggle-status">
-                                <div class="toggle-button" data-status = "false"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="actions">
-                                <button title="Edit"><i class="fa-solid fa-pen"></i></button>
-                                <button title="Save"><i class="fa-duotone fa-solid fa-circle-check"></i></button>
-                                <button title="Delete"><i class="fa-solid fa-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr> -->
-                    <tr class="task-creation">
+                    <tr id="par-line"></tr>
+
+                    <tr class="task-creation" >
                         <td></td>
                         <td class="task-input">
                             <input type="text" placeholder="Click here - Task creation" id="task-input" />
                         </td>
                         <td></td>
                         <td>
-                            <div class="actions">
-                                <button title="Save"><i class="fa-duotone fa-solid fa-circle-check"></i></button>
+                            <div class="actions" id="save">
+                                <button title="Save" disabled><i class="fa-duotone fa-solid fa-circle-check"></i></button>
                             </div>
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
-            <!-- <button type="button" title="Add New"><img src="https://cdn-icons-png.freepik.com/256/3388/3388964.png" class="image-icon" id="add-new"/></button> -->
+
         </div>
     </div>
     <script type="module" src="./script.js"></script>

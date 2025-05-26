@@ -128,6 +128,14 @@ body {
     opacity: 0.3;
 }
 
+.another-opacity {
+    opacity: 1;
+}
+
+.task-table-content td:focus {
+    outline: 1px solid hsl(229, 84%, 36%)
+}
+
 /* .blurred {
     filter: blur(5px);
     transition: filter 0.3s ease-in-out;

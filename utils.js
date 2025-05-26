@@ -1,3 +1,7 @@
+function setItem(name, value) {
+    localStorage.setItem(name, JSON.stringify(value));
+}
+
 function createNewElement(element, classes = [], text = "") {
     let elem = document.createElement(element);
     classes.forEach(cls => {
@@ -17,31 +21,98 @@ function setActionButtons(parent) {
     let addButton = createNewElement('button');
     let editButton = createNewElement('button');
     let deleteButton = createNewElement('button');
-    addButton.innerHTML = '<i class="fa-solid fa-pen"></i>'
-    editButton.innerHTML = '<i class="fa-duotone fa-solid fa-circle-check"></i>'
+
+    editButton.innerHTML = '<i class="fa-solid fa-pen"></i>'
+    addButton.innerHTML = '<i class="fa-duotone fa-solid fa-circle-check"></i>'
     deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>'
-    parent.appendChild(addButton);
+
+    addButton.classList.add('add-btn');
+    editButton.classList.add('edit-btn');
+    deleteButton.classList.add('delete-btn');
+
+    addButton.setAttribute('disabled', true);
+
     parent.appendChild(editButton);
+    parent.appendChild(addButton);
     parent.appendChild(deleteButton);
 }
 
 function getAllTasks() {
-    let tasks = [];
-    let taskCount = localStorage.length;
+    let allTasks = localStorage.getItem('tasks')
 
-    for (let i = 0; i < taskCount; i++) {
-        let task = {};
-        console.log(localStorage.key(i));
-        task.taskName = localStorage.key(i);
-        task.status = localStorage.getItem(task.taskName);
-        tasks.push(task);
+    if (allTasks === null) {
+        allTasks = [];
+    } else {
+        allTasks = JSON.parse(allTasks);
     }
 
-    return tasks;
+    return allTasks;
+}
+
+function saveNewTask(newTask) {
+    let newCreatedTask = {
+        taskName: newTask,
+        taskCompletedStatus: false
+    }
+
+    let allTasks = getAllTasks();
+    allTasks.push(newCreatedTask);
+    setItem('tasks', allTasks);
+}
+
+function deleteTask(taskName) {
+    let allTasks = getAllTasks();
+    let modifiedTasks = allTasks.filter((task) => {
+        if (task.taskName != taskName) return task;
+    })
+
+    setItem('tasks', modifiedTasks);
+}
+
+function arrangingProcessOfRows(task, loopIndex, status) {
+    let taskRow = createNewElement('tr');
+    let taskId = createNewElement('td', [], loopIndex + 1);
+    let taskName = createNewElement('td', [], task.taskName);
+    let taskStatus = createNewElement('td');
+
+    taskStatus.innerHTML = `
+      <div class="toggle" >
+        <div class="toggle-button" data-status= ${status}></div>
+      </div>`;
+
+    let actionButtons = createNewElement('td', ['actions']);
+    setActionButtons(actionButtons);
+
+    taskRow.appendChild(taskId);
+    taskRow.appendChild(taskName);
+    taskRow.appendChild(taskStatus);
+    taskRow.appendChild(actionButtons);
+
+    return taskRow;
+}
+
+function updateTaskStatus(taskName, taskStatus) {
+    let allTasks = getAllTasks();
+    console.log(taskName, taskStatus)
+    let task = allTasks.find(task => task.taskName == taskName);
+    console.log(task)
+    task.taskCompletedStatus = taskStatus;
+    setItem('tasks', allTasks);
+}
+
+function updateTask(oldTaskName, newTaskName) {
+    let allTasks = getAllTasks();
+    allTasks.find(task => task.taskName == oldTaskName).taskName = newTaskName;
+    setItem('tasks', allTasks);
 }
 
 export default {
     createNewElement,
     setActionButtons,
-    getAllTasks
+    getAllTasks,
+    saveNewTask,
+    deleteTask,
+    arrangingProcessOfRows,
+    updateTaskStatus,
+    updateTask,
 }
