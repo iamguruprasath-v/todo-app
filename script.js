@@ -8,6 +8,9 @@ const threshHold = document.getElementById('par-line');
 
 // Rendering the available Tasks
 let allTasks = utils.getAllTasks();
+allTasks.forEach((task) => {
+    console.log(task.taskName);
+})
 let activeTasks = allTasks.filter(task => task.taskCompletedStatus == false);
 let completedTasks = allTasks.filter(task => task.taskCompletedStatus == true);
 
