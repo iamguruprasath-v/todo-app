@@ -118,7 +118,7 @@ function editTask(button) {
     addButton.removeEventListener('click', updateTaskEventListener);
     if(value == '') return;
     utils.updateTask(taskValue, taskNameField.innerText);
-    location.reload();
+    // location.reload();
   }
 
   addButton.addEventListener('click', updateTaskEventListener)
