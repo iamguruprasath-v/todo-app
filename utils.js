@@ -73,6 +73,7 @@ function arrangingProcessOfRows(task, loopIndex, status) {
     let taskRow = createNewElement('tr');
     let taskId = createNewElement('td', [], loopIndex + 1);
     let taskName = createNewElement('td', [], task.taskName);
+    taskName.style.whiteSpace = 'pre';
     let taskStatus = createNewElement('td');
 
     taskStatus.innerHTML = `
