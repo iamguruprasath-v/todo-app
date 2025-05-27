@@ -102,7 +102,11 @@ function updateTaskStatus(taskName, taskStatus) {
 
 function updateTask(oldTaskName, newTaskName) {
     let allTasks = getAllTasks();
+    console.log(allTasks);
+    console.log(allTasks.find(task => task.taskName == oldTaskName));
+    console.log(allTasks.find(task => task.taskName == oldTaskName).taskName);
     allTasks.find(task => task.taskName == oldTaskName).taskName = newTaskName;
+    console.log(allTasks);
     setItem('tasks', allTasks);
 }
 
