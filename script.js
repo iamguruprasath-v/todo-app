@@ -117,6 +117,8 @@ function editTask(button) {
     addButton.setAttribute('disabled', true);
     addButton.removeEventListener('click', updateTaskEventListener);
     if(value == '') return;
+    console.log("Field is not empty.");
+    console.log(`TaskValue: ${taskValue}\n TaskFieldName: ${taskNameField.innerText}`)
     utils.updateTask(taskValue, taskNameField.innerText);
     // location.reload();
   }
