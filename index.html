@@ -18,15 +18,13 @@
                 <thead class="task-table-head">
                     <tr>
                         <th>SNO:</th>
-                        <th>Task</th>
-                        <th>Status</th>
+                        <th>Active Tasks</th>
+                        <th>Update Here</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody class="task-table-content" id="task-table-content">
-                    <tr id="par-line"></tr>
-
-                    <tr class="task-creation" >
+                    <tr class="task-creation" id="for-active-tasks">
                         <td></td>
                         <td class="task-input">
                             <input type="text" placeholder="Click here - Task creation" id="task-input" />
@@ -38,6 +36,14 @@
                             </div>
                         </td>
                     </tr>
+                    <tr id="par-line">
+                        <th>SNO:</th>
+                        <th>Completed Tasks</th>
+                        <th>Revert Updation</th>
+                        <th>Actions</th>
+                    </tr>
+
+
                     
                 </tbody>
             </table>

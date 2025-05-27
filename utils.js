@@ -1,4 +1,5 @@
 function setItem(name, value) {
+    console.log(name, value)
     localStorage.setItem(name, JSON.stringify(value));
 }
 
@@ -62,9 +63,13 @@ function saveNewTask(newTask) {
 
 function deleteTask(taskName) {
     let allTasks = getAllTasks();
-    let modifiedTasks = allTasks.filter((task) => {
-        if (task.taskName != taskName) return task;
-    })
+    let modifiedTasks = [];
+    let gotTheTask = false;
+    for(let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].taskName == taskName && !gotTheTask) {
+            gotTheTask = true;
+        } else modifiedTasks.push(allTasks[i]);
+    }
 
     setItem('tasks', modifiedTasks);
 }
@@ -93,9 +98,20 @@ function arrangingProcessOfRows(task, loopIndex, status) {
 }
 
 function updateTaskStatus(taskName, taskStatus) {
+    // debugger;
     let allTasks = getAllTasks();
-    let task = allTasks.find(task => task.taskName == taskName);
-    task.taskCompletedStatus = taskStatus;
+
+    let statusChanged = false;
+    for(let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].taskName == taskName && !statusChanged) {
+            if (allTasks[i].taskCompletedStatus == taskStatus) continue;
+            else {
+                allTasks[i].taskCompletedStatus = taskStatus;
+                statusChanged = true;
+                break;
+            }
+        }
+    }
     setItem('tasks', allTasks);
 }
 

@@ -4,6 +4,7 @@ const tableBody = document.getElementById('task-table-content');
 const taskInput = document.getElementById('task-input');
 const saveButton = document.getElementById('save');
 const threshHold = document.getElementById('par-line');
+const activeTasksParTd = document.getElementById('for-active-tasks')
 
 
 // Rendering the available Tasks
@@ -21,7 +22,7 @@ function renderActiveTasks(tasks) {
   for (let loopIndex = 0; loopIndex < tasks.length; loopIndex++) {
     let task = tasks[loopIndex];
     let taskRow = utils.arrangingProcessOfRows(task, loopIndex, 'false');
-    threshHold.before(taskRow);
+    activeTasksParTd.before(taskRow);
   }
 
 }
@@ -117,7 +118,7 @@ function editTask(button) {
     addButton.removeEventListener('click', updateTaskEventListener);
     if(value == '') return;
     utils.updateTask(taskValue, taskNameField.innerText);
-    // location.reload();
+    location.reload();
   }
 
   addButton.addEventListener('click', updateTaskEventListener)

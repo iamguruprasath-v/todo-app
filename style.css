@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url('./assets/todo-bg.png');
+    background-image: url('./assets/todo-bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--text-color);
@@ -24,7 +24,7 @@ body {
 .container h2 {
     font-family: var(--heading-font);
     font-size: 5rem;
-    background: linear-gradient(90deg, #0077ff, #e9da52);
+    background: linear-gradient(90deg, #ad4444, #3033c2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
