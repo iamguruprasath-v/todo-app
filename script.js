@@ -8,9 +8,6 @@ const threshHold = document.getElementById('par-line');
 
 // Rendering the available Tasks
 let allTasks = utils.getAllTasks();
-allTasks.forEach((task) => {
-    console.log(task.taskName);
-})
 let activeTasks = allTasks.filter(task => task.taskCompletedStatus == false);
 let completedTasks = allTasks.filter(task => task.taskCompletedStatus == true);
 
@@ -106,7 +103,6 @@ function deleteTask(button) {
 
 function editTask(button) {
   let row = button.closest('tr');
-  console.log(row);
   let addButton = row.querySelector('.add-btn');
   let taskNameField = row.children[1];
   let taskValue = taskNameField.innerText;
@@ -120,8 +116,6 @@ function editTask(button) {
     addButton.setAttribute('disabled', true);
     addButton.removeEventListener('click', updateTaskEventListener);
     if(value == '') return;
-    console.log("Field is not empty.");
-    console.log(`TaskValue: ${taskValue}\n TaskFieldName: ${taskNameField.innerText}`)
     utils.updateTask(taskValue, taskNameField.innerText);
     // location.reload();
   }

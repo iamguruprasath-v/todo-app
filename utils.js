@@ -94,28 +94,14 @@ function arrangingProcessOfRows(task, loopIndex, status) {
 
 function updateTaskStatus(taskName, taskStatus) {
     let allTasks = getAllTasks();
-    console.log(taskName, taskStatus)
     let task = allTasks.find(task => task.taskName == taskName);
-    console.log(task)
     task.taskCompletedStatus = taskStatus;
     setItem('tasks', allTasks);
 }
 
 function updateTask(oldTaskName, newTaskName) {
-    debugger
-    console.log(`OldTaskname: ${oldTaskName}\n NewTaskName: ${newTaskName}`);
     let allTasks = getAllTasks();
-    console.log("BeforeUpdateTasks: ")
-    allTasks.forEach((task) => {
-        console.log(task.taskName);
-    })
-    console.log(`FoundedTask: ${allTasks.find(task => task.taskName == oldTaskName)}`);
-    console.log(`FoundedTaskName: ${allTasks.find(task => task.taskName == oldTaskName).taskName}`);
     allTasks.find(task => task.taskName == oldTaskName).taskName = newTaskName;
-    console.log("AfterUpdateTasks: ")
-    allTasks.forEach((task) => {
-        console.log(task.taskName);
-    })
     setItem('tasks', allTasks);
 }
 
