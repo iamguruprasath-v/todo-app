@@ -88,6 +88,12 @@ taskInput.addEventListener('focus', () => {
 
 });
 
+taskInput.addEventListener('keypress', (e) => {
+  if (e.code === 'Enter') {
+    saveButton.children[0].click();
+  }
+});
+
 taskInput.addEventListener('blur', () => {
     taskInput.setAttribute('placeholder', 'Click here - Task creation');
     taskInput.parentElement.parentElement.classList.remove('another-opacity');
