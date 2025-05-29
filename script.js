@@ -102,6 +102,8 @@ function deleteTask(button) {
   }
 }
 
+
+
 function editTask(button) {
   let row = button.closest('tr');
   let addButton = row.querySelector('.add-btn');
@@ -110,6 +112,8 @@ function editTask(button) {
   addButton.removeAttribute('disabled');
   taskNameField.setAttribute('contentEditable', true);
   taskNameField.focus();
+
+
 
   function updateTaskEventListener() {
     let value = taskNameField.innerText;
@@ -120,6 +124,12 @@ function editTask(button) {
     utils.updateTask(taskValue, taskNameField.innerText);
     location.reload();
   }
+
+  taskNameField.addEventListener('blur', () => {
+    taskNameField.removeAttribute('contentEditable');
+    addButton.setAttribute('disabled', true);
+    addButton.removeEventListener('click', updateTaskEventListener);
+  })
 
   addButton.addEventListener('click', updateTaskEventListener)
 }
